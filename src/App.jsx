@@ -38,16 +38,16 @@ function App() {
     if (generatedPassword) {
       setResult(generatedPassword);
     } else {
-      toast.error("Please select at least one option");
+      toast.error("Пожалуйста, выберите хотя бы один вариант");
     }
   };
 
   const copyToClipboard = async () => {
     if (result) {
       await navigator.clipboard.writeText(result);
-      toast.success("Copied to your clipboard");
+      toast.success("Скопировано в ваш буфер обмена");
     } else {
-      toast.error("No password to copy");
+      toast.error("Нет пароля для копирования");
     }
   };
 
@@ -59,7 +59,7 @@ function App() {
           <input
             className="card__head-input"
             type="text"
-            placeholder="Min 6 char"
+            placeholder="Минимум 4"
             value={result}
             readOnly
           />
@@ -79,8 +79,8 @@ function App() {
               type="number"
               name="length"
               id="length"
-              min={6}
-              max={12}
+              min={4}
+              max={18}
               value={values.length}
               onChange={setValues}
             />
